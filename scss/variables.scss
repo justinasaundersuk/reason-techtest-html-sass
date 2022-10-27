@@ -1,0 +1,41 @@
+// Breakpoints
+$bp-ms: 375;
+$bp-sm: 768;
+$bp-md: 992;
+$bp-lg: 1200;
+
+// Font sizes
+$fs-200: 0.75rem;  // 12px
+$fs-300: 0.875rem; // 14px
+$fs-400: 1rem;     // 16px, base
+$fs-500: 1.25rem;  // 20px
+$fs-600: 1.5rem;   // 24px
+$fs-700: 1.75rem;  // 28px
+$fs-800: 2rem;     // 32px
+$fs-900: 3.875rem; // 62px
+
+// Colours
+$color-primary: #478175;
+$color-secondary: #487c8f;
+$color-tertiary: #be3249;
+
+$color-background-light: #ececec;
+$color-background-lightest: #ffffff;
+
+$color-text-primary: #000000;
+$color-text-inverted: #ffffff;
+$color-text-secondary: #478175;
+
+$color-link-primary: #292929;
+$color-link-primary-bg: #ffffff;
+$color-link-inverted: #ffffff;
+$color-link-inverted-bg: #be3249;
+
+$border-light: #ececec;
+$border-underscore: #478175;
+
+// Fonts
+$basefont-size: 16; // Used in "em" function for media query min() and max() mixins
+$base-font-size: 16px;
+$base-line-height: 20px;
+$baseline-px: ($basefont-size * 1px); // Used in "rem" mixin, base font size in px

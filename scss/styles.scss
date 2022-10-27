@@ -1,0 +1,537 @@
+html {
+  font-size: $fs-400;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $fs-400;
+}
+
+h1 { 
+  font-size: $fs-500;
+}
+
+h2 { 
+  margin: 0;
+  font-size: $fs-800;
+}
+
+h3 { 
+  margin: 0;
+  font-size: $fs-600;
+}
+
+a:visited {
+  color: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+nav {
+  position: relative;
+
+  ul {
+    list-style-type: none;
+  
+    li { display: inline-block; }
+  }  
+}
+
+a.skip-to-main-content {
+  position: absolute;
+  padding: 0.6rem;
+  background: $color-link-inverted-bg;
+  color: $color-link-inverted;
+  font-size: $fs-300;
+  font-weight: bold;
+  left: calc(50% - 120px);
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  opacity: 0;
+  
+  &:focus-within {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 1px solid $border-light;
+
+  @include min($bp-lg) {
+    padding: 0 50px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: $fs-300;
+    font-weight: bold;
+    text-decoration: none;
+    color: $color-link-primary;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.underscore {
+      border-left: 1px solid $border-light;
+      border-right: 1px solid $border-light;
+      border-bottom: 4px solid $border-underscore;
+    }
+
+    &.highlight {
+      background: $color-link-inverted-bg;
+      color: $color-link-inverted;
+      border-bottom: 4px solid $color-link-inverted-bg;
+    }
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      border-left: 1px solid $border-light;
+      border-right: 1px solid $border-light;
+      transition: background-color 0.5s ease-in-out;
+
+      &:hover {
+        background-color: $color-background-light;
+        text-decoration: none;
+        transition: background-color 0.5s ease-in-out;
+      }
+    }
+
+    i { 
+      font-size: $fs-500;
+    }
+  }
+}
+
+.nav-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  margin: 20px 0;
+
+  @include min($bp-lg) {
+    padding: 0 50px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  a { 
+    text-decoration: none;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img { transform: rotate(-25deg); }
+
+    .brand {
+      color: $color-link-primary;
+      font-size: $fs-700;
+    }
+
+    span {
+      display: block;
+      font-size: $fs-400;
+      line-height: $fs-500;
+      text-indent: 3px;
+
+      @include min($bp-lg) {
+        font-size: $fs-400;
+        line-height: $fs-300;
+      }
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    text-align: center;
+
+    li {
+      text-align: center;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.2rem 0.2rem;
+      margin: 0.25rem 0.3rem;
+      border-bottom: 2px solid $color-primary;
+      font-size: $fs-400;
+      font-weight: bold;
+      color: $color-link-primary;
+      text-align: center;
+
+      @include min($bp-lg) {
+        border-bottom: 3px solid transparent;
+        transition: border 0.5s ease-in-out;
+        text-align: left;
+
+        &:hover {
+          border-bottom: 3px solid $color-primary;
+          transition: border 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+.hero-container {
+  @include min($bp-md) {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1px 0;
+    grid-template-areas: 
+    "hero hero"
+    "hero-sideimage hero-content"; 
+  }
+}
+
+.hero { 
+  grid-area: hero; 
+  padding: 50px 50px 20px 50px;
+  height: 340px;
+  background: url('../images/pexels-andrea-piacquadio.jpg') no-repeat;
+  background-size: cover;
+  background-position: 70%;
+  text-align: center;
+
+  @include min($bp-sm) {
+    height: 440px;
+    text-align: left;
+  }
+
+  @include min($bp-md) {
+    background-position: unset;
+  }
+
+  h1 {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: $color-secondary;
+    color: $color-background-lightest;
+ 
+    @include min($bp-sm) {
+      display: inline-block;
+      font-size: $fs-800;
+      text-align: left;
+    }
+
+    @include min($bp-md) {
+      font-size: $fs-900;
+    }
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+    padding: 1.5rem;
+    background: $color-background-lightest;
+    color: $color-primary;
+    font-size: $fs-500;
+    font-weight: bold;
+
+    @include min($bp-sm) {
+      max-width: 50%;
+    }
+  }
+
+  a {
+    @include button($color-text-inverted, $color-tertiary, none, none, 20px);
+  }
+}
+
+.hero-sideimage { 
+  display: none;
+
+  @include min($bp-md) {
+    display: grid;
+    grid-area: hero-sideimage; 
+  
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.hero-content { 
+  grid-area: hero-content;
+  position: relative;
+  padding: 2rem 1.5rem;
+  background: $color-primary;
+  color: $color-text-inverted;
+  overflow: hidden;
+
+  @include min($bp-lg) {
+    padding: 3rem 2rem;
+  }
+
+  p {
+    font-size: $fs-500;
+    line-height: $fs-700;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    @include button(none, $color-text-inverted, 2px, $color-text-inverted, 20px);
+  }
+
+  img {
+    position: absolute;
+    width: 75%;
+    bottom: -15%;
+    right: -15%;
+    opacity: 0.1;
+    transform: rotate(-35deg);
+
+    @include min($bp-lg) {
+      bottom: -35%;
+      right: -30%;
+    }
+  }
+}
+
+.help {
+  padding: 2rem 1.5rem;
+  background-color: $color-background-light;
+  color: $color-text-primary;
+ 
+  @include min($bp-lg) {
+    padding: 2rem 3rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  .help-cta, select {
+    font-size: $fs-300;
+
+    @include min($bp-sm) {
+      font-size: $fs-400;
+    }
+
+    @include min($bp-md) {
+      font-size: $fs-600;
+    }
+  }
+
+  .help-cta {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 1.5rem;
+    text-align: center;
+
+    @include min($bp-md) {
+      padding: 2rem;
+      background-color: $color-background-lightest;
+      text-align: left;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      i {
+        position: absolute;
+        top: 0;
+        right: 10px;
+      }
+    }
+
+    select {
+      border-bottom: 2px solid $color-secondary;
+      color: $color-secondary;
+      font-weight: bold;
+
+      @include min($bp-md) {
+        margin: 0 1rem;
+      }
+
+      &:hover { cursor: pointer; }
+    }
+
+    button {
+      @include button($color-link-inverted-bg, $color-text-inverted, none, none, 20px);
+      margin-top: 1.5rem;
+
+      @include min($bp-sm) {
+        margin-top: 0;
+      }
+    }    
+  }
+}
+
+.whatdowedo {
+  padding: 2rem 1.5rem;
+  background-color: $color-secondary;
+  color: $color-text-inverted;
+  font-size: $fs-600;
+
+  @include min($bp-lg) {
+    padding: 2rem 3rem;
+  }
+
+  h3, p {
+    color: $color-text-inverted;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: $fs-300;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 2rem;
+    
+    a {
+      @include button($color-text-inverted, $color-tertiary, none, none, 20px);
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+ 
+
+  @include min($bp-md) {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  @include min($bp-lg) {
+    gap: 0;
+  }
+}
+
+.card {
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+  background: $color-background-lightest;
+  color: $color-text-primary;
+ 
+  h4, p {
+    color: $color-text-primary;
+  }
+
+  h4 {
+    font-size: $fs-500;
+    font-weight: bold;
+    margin: 0 0 1rem;
+  }
+
+  a {
+    @include button(none, $color-tertiary, 2px, $color-link-primary, 20px);
+  }
+}
+
+.events {
+  .event {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $color-background-light;
+    border-right: 1px solid $color-background-light;
+    margin-top: 2rem;
+  }
+
+  figure {
+    display: none;
+
+    @include min($bp-sm) {
+      display: block;
+      width: 50%;
+    
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .event-details {
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: $color-background-light;
+
+    @include min($bp-sm) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 50%;
+    }
+
+    .description {
+      h3 {
+        padding: 1rem;
+        background-color: $color-primary;
+        color: $color-text-inverted;
+      }
+  
+      h4 {
+        padding: 0 1rem;
+        font-weight: normal;
+      }
+    }
+
+    .details {
+      padding: 0 1rem;
+
+      p {
+        margin: 0;
+        font-size: $fs-300;
+      }
+    }
+  }
+}
+
+/* Wordpress only */
+.copyright {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  color: #be3249;
+  font-weight: bold;
+  font-size: 1rem;
+}
